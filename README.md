@@ -1,25 +1,31 @@
-gvgai
+GVGAI-MapElite
 =====
 
-Note: The Learning track code is not in this repository, but here: https://github.com/rubenrtorrado/GVGAI_GYM
+This Project is forked from the mcts_agents branch from https://github.com/mcgreentn/GVGAI and the large portion of the implementation is taken from https://github.com/amidos2006/MarioExperiments
 
 
-This is the framework for the General Video Game Competition, used for the Planning and PCG Tracks - http://www.gvgai.net/
+Taking inspiration from the example genetic generator, a basic layout for MapElite is implemented. The package is under `/src/tracks/levelGeneration/mapEliteLevelGenerator`
 
-Google group - https://groups.google.com/forum/#!forum/the-general-video-game-competition
+## TODOs
 
-## FAQs / Troubleshooting
+`Chromosome.java`
 
-**3. Where are the Test methods? Due to the explosion of GVGAI competition tracks, we have distributed the main methods in different classes across the code hierarchy:
+1. The `populateDimensions` method is a placeholder. This method is supposed to be able to interface with  Adelphi to obtain its dimension info.
 
- - Single Player Planning track: tracks.singlePlayer.Test.java
- - 2-Player Planning track: tracks.multiPlayer.TestMultiPlayer.java
- - Level Generation track: tracks.levelGeneration.TestLevelGeneration.java
- - Rule Generation track: tracks.ruleGeneration.TestRuleGeneration.java
+2. The `calculateFitness` method works similarly as the Mario level generator code. Its implementation needs to be re-evaluated to fit GVGAI framework.
 
+## CHANGELOG
 
-**2. How do I upload my controller? What files or folder structure do I need? 
-First of all, your controller ```Agent.java``` and any auxiliary files you create should be in a single package folder with your username. For example, if your username is "abc", you should have a package folder named "abc" in the project. Your entire project layout should look something like this:
+This lays out all the changes in the codebase that deviates from mcts_agents
+Any code in the mapEliteLevelGenerator is not included
+
+`/src/core/game/game.java`
+ - Commented out a block of code for testing at line 941, 948, 1316, 1342
+
+`src/core/competition/CompetitionParameters.java`
+ - Line 37: Changed `LEVEL_ACTION_TIME` to 200000
+
+????????????????????????
 
 ```groovy
 - abc
@@ -31,16 +37,3 @@ First of all, your controller ```Agent.java``` and any auxiliary files you creat
 - ontology
 - tools
 ```
-
-Then, all you need to do is to zip and upload the "abc" folder. No other folders/files are necessary.
-
-
-**3. I am getting the error `javac1.8 class not found` when running Eclipse and ANT on build.xml**
-This is likely because the ANT version that is installed with your version of Eclipse is old. You can easily fix this problem by doing the following:
-
-- Download the archive of the [latest version of ANT](http://ant.apache.org/bindownload.cgi) (Tested with  Ant 1.9.4)
-- Extract the archive onto a local folder on your computer (e.g., /Users/gvgai/ant/apache-ant-1.9.4/)
-- In Eclipse, go to Eclipse -> Preferences -> Ant -> Runtime
-- Click on "Ant Home'' button on the right.
-- Select the folder, which you extracted ANT into (e.g., /Users/gvgai/ant/apache-ant-1.9.4/)
-
