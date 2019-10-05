@@ -24,16 +24,3 @@ Any code in the mapEliteLevelGenerator is not included
 
 `src/core/competition/CompetitionParameters.java`
  - Line 37: Changed `LEVEL_ACTION_TIME` to 200000
-
-????????????????????????
-
-```groovy
-- abc
-	|- Agent.java
-	|- MyAdditionalFile1.java
-	|- MyAdditionalFile2.java
-- tracks
-- core
-- ontology
-- tools
-```
